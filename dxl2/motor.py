@@ -46,3 +46,4 @@ class Motor:
             }[width](self.conn.port_handler, self.id, start)
         except KeyError:
             raise NotImplementedError(f"Register width not supported {width}")
+
