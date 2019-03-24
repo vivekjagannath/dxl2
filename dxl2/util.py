@@ -21,3 +21,8 @@ def create2ByteArray(bin_value):
 def create1ByteArray(bin_value):
     byte_array = [DXL_LOBYTE(DXL_LOWORD(bin_value))]
     return byte_array
+
+
+def create4ByteArray(bin_values):
+    byte_array = [DXL_LOBYTE(DXL_LOWORD(bin_value)), DXL_HIBYTE(DXL_LOWORD(bin_value)), DXL_LOBYTE(DXL_HIWORD(bin_value)), DXL_HIBYTE(DXL_HIWORD(bin_value))]
+    return byte_array
