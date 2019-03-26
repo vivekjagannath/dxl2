@@ -50,7 +50,10 @@ class MotorChain:
                 self.conn.port_handler, self.packet_handler, pos, size
             )
             for k, v in vals.items():
-                if size == 2:
+                if size == 4:
+                    dxl_addparam_result = groupSyncWrite.addParam( k, util.create4ByteArray(v))
+
+                elif size == 2:
                     dxl_addparam_result = groupSyncWrite.addParam(
                         k, util.create2ByteArray(v)
                     )
