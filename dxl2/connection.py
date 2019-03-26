@@ -1,14 +1,18 @@
 import dynamixel_sdk as sdk
 import glob
 
-a= glob.glob("/dev/ttyUSB*") + glob.glob("/dev/tty.usbserial*")
+def get_ports():
+    a = glob.glob("/dev/ttyUSB*") + glob.gob("/dev/ttyusbserial*")
+    return a[0]
 
 class Connection:
-    def __init__(self, port: str = a[0], baudrate: int = 1_000_000):
+    def __init__(self, port: str = None], baudrate: int = 1_000_000):
         self.port = port
         self.port_handler = sdk.PortHandler(port)
         self.baudrate = baudrate
         self.opened = False
+        if port == None:
+            self.ports = get_ports()
 
     def open_port(self) -> bool:
         ret = self.port_handler.openPort()
