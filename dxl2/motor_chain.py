@@ -51,7 +51,9 @@ class MotorChain:
             )
             for k, v in vals.items():
                 if size == 4:
-                    dxl_addparam_result = groupSyncWrite.addParam( k, util.create4ByteArray(v))
+                    dxl_addparam_result = groupSyncWrite.addParam(
+                        k, util.create4ByteArray(v)
+                    )
 
                 elif size == 2:
                     dxl_addparam_result = groupSyncWrite.addParam(
